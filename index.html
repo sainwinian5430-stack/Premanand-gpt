@@ -6,7 +6,7 @@
 
 <title>Premanand GPT Download – Free Android App | Spiritual AI Assistant</title>
 
-<meta name="description" content="Download Premanand GPT for Android. An unofficial spiritual AI assistant for bhakti, naam jap, meditation and discipline.">
+<meta name="description" content="Download Premanand GPT for Android, an unofficial spiritual AI learning assistant for bhakti, naam jap, meditation and discipline.">
 
 <meta name="robots" content="index, follow">
 
@@ -30,7 +30,7 @@ header{
   background:linear-gradient(135deg,#ffb300,#ff8f00);
   color:white;
   text-align:center;
-  padding:20px 14px 24px;
+  padding:22px 14px 25px;
 }
 
 .om{
@@ -38,7 +38,7 @@ header{
 }
 
 .brand{
-  font-size:29px;
+  font-size:30px;
   font-weight:800;
 }
 
@@ -71,10 +71,6 @@ header{
   font-size:18px;
   font-weight:800;
   margin:5px 0 18px;
-}
-
-.download.hidden{
-  display:none;
 }
 
 .card{
@@ -257,4 +253,418 @@ footer{
 Premanand GPT
 </div>
 
-<div class="
+<div class="tag">
+UNOFFICIAL AI SPIRITUAL ASSISTANT
+</div>
+
+<div class="radhe">
+राधे राधे 🙏
+</div>
+
+</header>
+
+<div class="container">
+
+<a
+id="downloadBtn"
+class="download"
+href="Premanand%20GPT.apk">
+
+📲 Download Premanand GPT APK
+
+</a>
+
+<div class="card">
+
+<h2>🙏 Spiritual Learning Assistant</h2>
+
+<p>
+Bhakti, Naam Jap, meditation, discipline aur peaceful spiritual learning ke liye AI assistant.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>✨ Features</h2>
+
+<div class="features">
+
+<div class="feature">
+🙏 Naam Jap
+</div>
+
+<div class="feature">
+📚 Discipline
+</div>
+
+<div class="feature">
+🌸 Bhakti
+</div>
+
+<div class="feature">
+🧘 Man ki Shanti
+</div>
+
+</div>
+
+</div>
+
+<div class="card chat-card">
+
+<div class="chat-head">
+
+<span>
+💬 Premanand GPT
+</span>
+
+<button
+class="language"
+onclick="openLanguage()">
+
+🌐 Language
+
+</button>
+
+</div>
+
+<div id="chat" class="chat">
+
+<div class="msg bot" id="welcome">
+
+Radhe Radhe 🙏
+
+Apna spiritual question poochiye.
+
+</div>
+
+</div>
+
+<div class="inputbar">
+
+<input
+id="message"
+placeholder="Apna question likhiye..."
+onkeydown="if(event.key==='Enter')sendMessage()">
+
+<button
+class="send"
+onclick="sendMessage()">
+
+➤
+
+</button>
+
+</div>
+
+</div>
+
+<div class="disclaimer">
+
+⚠️ Premanand GPT is an unofficial AI spiritual learning assistant and is not affiliated with or endorsed by Premanand Ji or any official organization.
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 Premanand GPT
+
+</footer>
+
+
+<!-- Language selection appears ONLY inside installed Android app -->
+
+<div
+id="languageModal"
+class="modal"
+style="display:none">
+
+<div class="modal-box">
+
+<h2>
+🌐 Choose your language
+</h2>
+
+<p class="small">
+Chat shuru karne se pehle apni language select karein.
+</p>
+
+<button
+class="lang-btn"
+onclick="selectLanguage('Hindi','hi')">
+
+🇮🇳 हिन्दी
+
+</button>
+
+<button
+class="lang-btn"
+onclick="selectLanguage('English','en')">
+
+🇬🇧 English
+
+</button>
+
+<button
+class="lang-btn"
+onclick="selectLanguage('Hinglish','hinglish')">
+
+🇮🇳 Hinglish
+
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+const API_URL =
+"https://premanand-gpt-api.sainwinian5430.workers.dev";
+
+let selectedLanguage =
+localStorage.getItem("premanand_language") || "";
+
+
+function isInstalledApp(){
+
+return window.matchMedia("(display-mode: standalone)").matches
+|| window.navigator.standalone === true;
+
+}
+
+
+function openLanguage(){
+
+document
+.getElementById("languageModal")
+.style.display="flex";
+
+}
+
+
+function selectLanguage(name,code){
+
+selectedLanguage=name;
+
+localStorage.setItem(
+"premanand_language",
+name
+);
+
+document
+.getElementById("languageModal")
+.style.display="none";
+
+
+const welcome =
+document.getElementById("welcome");
+
+const input =
+document.getElementById("message");
+
+
+if(code==="hi"){
+
+welcome.textContent =
+"राधे राधे 🙏\nअपना आध्यात्मिक प्रश्न पूछिए।";
+
+input.placeholder =
+"अपना प्रश्न लिखिए...";
+
+}
+
+else if(code==="en"){
+
+welcome.textContent =
+"Radhe Radhe 🙏\nAsk your spiritual question.";
+
+input.placeholder =
+"Write your question...";
+
+}
+
+else{
+
+welcome.textContent =
+"Radhe Radhe 🙏\nApna spiritual question poochiye.";
+
+input.placeholder =
+"Apna question likhiye...";
+
+}
+
+}
+
+
+function addMessage(text,type){
+
+const d =
+document.createElement("div");
+
+d.className =
+"msg " + type;
+
+d.textContent =
+text;
+
+const chat =
+document.getElementById("chat");
+
+chat.appendChild(d);
+
+chat.scrollTop =
+chat.scrollHeight;
+
+}
+
+
+async function sendMessage(){
+
+const input =
+document.getElementById("message");
+
+const message =
+input.value.trim();
+
+
+if(!message)
+return;
+
+
+if(!selectedLanguage){
+
+openLanguage();
+
+return;
+
+}
+
+
+addMessage(
+message,
+"user"
+);
+
+input.value="";
+
+
+addMessage(
+"🙏 Soch raha hoon...",
+"bot"
+);
+
+
+try{
+
+const response =
+await fetch(
+API_URL,
+{
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+message:
+"Answer in "
++
+selectedLanguage
++
+". User question: "
++
+message
+
+})
+
+}
+);
+
+
+const data =
+await response.json();
+
+
+const chat =
+document.getElementById("chat");
+
+
+if(chat.lastElementChild){
+
+chat.removeChild(
+chat.lastElementChild
+);
+
+}
+
+
+addMessage(
+
+data.reply
+||
+"Maaf kijiye, abhi jawab nahi mil paaya.",
+
+"bot"
+
+);
+
+
+}
+
+catch(error){
+
+const chat =
+document.getElementById("chat");
+
+
+if(chat.lastElementChild){
+
+chat.removeChild(
+chat.lastElementChild
+);
+
+}
+
+
+addMessage(
+
+"⚠️ Server se connection nahi ho paaya. Thodi der baad try karein.",
+
+"bot"
+
+);
+
+}
+
+}
+
+
+/*
+Language popup ONLY when running as installed Android app.
+It will NOT appear on the normal website.
+*/
+
+if(
+isInstalledApp()
+&&
+!localStorage.getItem("premanand_language")
+){
+
+setTimeout(
+openLanguage,
+500
+);
+
+}
+
+</script>
+
+</body>
+  </html>
