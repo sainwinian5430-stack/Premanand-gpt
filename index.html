@@ -257,9 +257,11 @@ async function sendMessage(){
 
     typing.style.display="none";
 
-    addMessage(
-      "Connection में समस्या है। कृपया थोड़ी देर बाद फिर कोशिश करें।",
-      "bot"
+    addMessage(addMessage(
+  "Error: " + error.message,
+  "bot"
+);
+      
     );
 
   }
