@@ -1,282 +1,362 @@
 <!DOCTYPE html>
-<html lang="hi">
-<head<link rel="manifest" href="manifest.json">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premanand GPT</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
 
-<style>
-*{box-sizing:border-box}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f5f0ff;
-  color:#222;
-}
+  <title>Premanand GPT Download – Free Android App | Spiritual AI Assistant</title>
 
-.header{
-  background:linear-gradient(135deg,#6a1b9a,#9c27b0);
-  color:white;
-  padding:22px 18px;
-  text-align:center;
-}
+  <meta name="description" content="Download Premanand GPT for Android. A free spiritual AI assistant for bhakti, naam jap, meditation, discipline and peaceful spiritual learning.">
 
-.logo{
-  font-size:42px;
-}
+  <meta name="keywords" content="Premanand GPT download, Premanand GPT APK, Premanand GPT Android app, spiritual AI assistant, bhakti AI, naam jap AI">
 
-h1{
-  margin:5px 0;
-  font-size:28px;
-}
+  <meta name="robots" content="index, follow">
 
-.badge{
-  display:inline-block;
-  background:#ffffff33;
-  padding:5px 10px;
-  border-radius:20px;
-  font-size:12px;
-}
+  <link rel="canonical" href="https://sainwinian5430-stack.github.io/Premanand-gpt/">
 
-.subtitle{
-  margin-top:8px;
-  opacity:.9;
-}
+  <meta property="og:title" content="Premanand GPT – Spiritual AI Assistant">
+  <meta property="og:description" content="Free spiritual AI assistant for bhakti, naam jap, meditation and discipline.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sainwinian5430-stack.github.io/Premanand-gpt/">
 
-.chat{
-  max-width:700px;
-  margin:auto;
-  padding:15px;
-  padding-bottom:120px;
-}
+  <link rel="manifest" href="manifest.json">
 
-.message{
-  padding:13px 15px;
-  margin:10px 0;
-  border-radius:16px;
-  max-width:88%;
-  line-height:1.5;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-.bot{
-  background:white;
-  border:1px solid #e4d9f5;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fffdf5;
+      color: #333;
+    }
 
-.user{
-  background:#7b1fa2;
-  color:white;
-  margin-left:auto;
-}
+    header {
+      background: linear-gradient(135deg, #ffc107, #ff9800);
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
 
-.quick{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:12px 0 18px;
-}
+    .om {
+      font-size: 55px;
+      font-weight: bold;
+    }
 
-.quick button{
-  border:0;
-  padding:10px 13px;
-  border-radius:20px;
-  background:#eadcff;
-  color:#5a1680;
-}
+    h1 {
+      margin: 5px 0;
+      font-size: 30px;
+    }
 
-.input-area{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:white;
-  padding:12px;
-  box-shadow:0 -2px 12px #0002;
-}
+    .tagline {
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
 
-.input-box{
-  max-width:700px;
-  margin:auto;
-  display:flex;
-  gap:8px;
-}
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
 
-input{
-  flex:1;
-  padding:14px;
-  border:1px solid #ccc;
-  border-radius:25px;
-  font-size:16px;
-  outline:none;
-}
+    .download {
+      display: block;
+      text-align: center;
+      background: #ff9800;
+      color: white;
+      text-decoration: none;
+      padding: 17px;
+      border-radius: 12px;
+      font-size: 19px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
 
-.send{
-  border:0;
-  background:#7b1fa2;
-  color:white;
-  width:52px;
-  border-radius:50%;
-  font-size:20px;
-}
+    .download:hover {
+      background: #f57c00;
+    }
 
-.typing{
-  color:#777;
-  font-style:italic;
-  display:none;
-}
+    .card {
+      background: white;
+      padding: 18px;
+      margin: 15px 0;
+      border-radius: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
 
-.disclaimer{
-  text-align:center;
-  font-size:11px;
-  color:#777;
-  margin-top:20px;
-}
-</style>
+    .card h2 {
+      margin-top: 0;
+      color: #e65100;
+    }
+
+    .chips {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .chip {
+      border: none;
+      background: #fff3cd;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #chat {
+      min-height: 200px;
+      max-height: 400px;
+      overflow-y: auto;
+      background: #fafafa;
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .message {
+      padding: 10px 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+      line-height: 1.5;
+    }
+
+    .user {
+      background: #fff0c2;
+      text-align: right;
+    }
+
+    .bot {
+      background: #f1f1f1;
+    }
+
+    .input-area {
+      display: flex;
+      gap: 8px;
+    }
+
+    input {
+      flex: 1;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button.send {
+      border: none;
+      background: #ff9800;
+      color: white;
+      padding: 13px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .disclaimer {
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #777;
+      font-size: 13px;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Premanand GPT",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Android",
+    "description": "Spiritual learning AI assistant for bhakti, naam jap, meditation and discipline.",
+    "downloadUrl": "https://sainwinian5430-stack.github.io/Premanand-gpt/Premanand%20GPT.apk"
+  }
+  </script>
 </head>
 
 <body>
 
-<div class="header">
-  <div class="logo">ॐ</div>
+<header>
+  <div class="om">ॐ</div>
   <h1>Premanand GPT</h1>
-  <div class="badge">UNOFFICIAL AI ASSISTANT</div>
-  <div class="subtitle">Radhe Radhe 🙏</div>
-</div>
+  <div class="tagline">UNOFFICIAL AI SPIRITUAL ASSISTANT</div>
+  <p>राधे राधे 🙏</p>
+</header>
 
-<div class="chat" id="chat">
+<div class="container">
 
-  <div class="message bot">
-    Radhe Radhe 🙏<br>
-    मैं आपका आध्यात्मिक learning assistant हूँ।<br>
-    आप भक्ति, नाम-जप, अनुशासन, ध्यान और मन की शांति से जुड़े प्रश्न पूछ सकते हैं।
+  <a class="download" href="Premanand%20GPT.apk">
+    📲 Download Premanand GPT APK
+  </a>
+
+  <div class="card">
+    <h2>🙏 Spiritual Learning Assistant</h2>
+    <p>
+      Bhakti, Naam Jap, meditation, discipline aur peaceful
+      spiritual learning ke liye AI assistant.
+    </p>
+    <p>
+      Android phone par app download karke use karein.
+    </p>
   </div>
 
-  <div class="quick">
-    <button onclick="ask('Naam jap kaise karein?')">🙏 Naam Jap</button>
-    <button onclick="ask('Student ke liye discipline kaise banayein?')">📚 Discipline</button>
-    <button onclick="ask('Bhakti kaise badhayein?')">🪷 Bhakti</button>
-    <button onclick="ask('Man ko shant kaise karein?')">🧘 Man ki shanti</button>
+  <div class="card">
+    <h2>✨ Explore</h2>
+
+    <div class="chips">
+      <button class="chip" onclick="quickMessage('Naam Jap kaise karein?')">
+        🕉️ Naam Jap
+      </button>
+
+      <button class="chip" onclick="quickMessage('Man ko shant kaise karein?')">
+        🧘 Man ki Shanti
+      </button>
+
+      <button class="chip" onclick="quickMessage('Bhakti kaise karein?')">
+        🙏 Bhakti
+      </button>
+
+      <button class="chip" onclick="quickMessage('Student discipline kaise banayein?')">
+        📚 Student Discipline
+      </button>
+    </div>
   </div>
 
-  <div class="typing" id="typing">AI जवाब लिख रहा है...</div>
+  <div class="card">
+    <h2>💬 Ask Premanand GPT</h2>
+
+    <div id="chat">
+      <div class="message bot">
+        Radhe Radhe 🙏<br>
+        Aap apna spiritual question pooch sakte hain.
+      </div>
+    </div>
+
+    <div class="input-area">
+      <input
+        id="message"
+        type="text"
+        placeholder="Apna question likhiye..."
+        onkeydown="if(event.key==='Enter') sendMessage()"
+      >
+
+      <button class="send" onclick="sendMessage()">
+        Send
+      </button>
+    </div>
+  </div>
 
   <div class="disclaimer">
-    यह एक unofficial AI assistant है और Premanand Ji या उनके किसी आधिकारिक संगठन से affiliated नहीं है।
+    ⚠️ Disclaimer: Premanand GPT is an unofficial AI spiritual
+    learning assistant and is not affiliated with or endorsed by
+    Premanand Ji or any official organization.
   </div>
 
 </div>
 
-<div class="input-area">
-  <div class="input-box">
-    <input id="input" placeholder="अपना प्रश्न लिखें..." />
-    <button class="send" onclick="sendMessage()">➤</button>
-  </div>
-</div>
+<footer>
+  © 2026 Premanand GPT
+</footer>
 
 <script>
 
 const API_URL =
-"https://premanand-gpt-api.sainwinian5430.workers.dev";
+  "https://premanand-gpt-api.sainwinian5430.workers.dev";
 
-function addMessage(text,type){
+function addMessage(text, type) {
 
-  const chat=document.getElementById("chat");
+  const chat = document.getElementById("chat");
 
-  const div=document.createElement("div");
+  const div = document.createElement("div");
 
-  div.className="message "+type;
+  div.className = "message " + type;
 
-  div.innerText=text;
+  div.innerHTML = text;
 
-  chat.insertBefore(
-    div,
-    document.getElementById("typing")
-  );
+  chat.appendChild(div);
 
-  window.scrollTo(0,document.body.scrollHeight);
+  chat.scrollTop = chat.scrollHeight;
 }
 
-function ask(text){
+function quickMessage(text) {
 
-  document.getElementById("input").value=text;
+  document.getElementById("message").value = text;
 
   sendMessage();
 }
 
-async function sendMessage(){
+async function sendMessage() {
 
-  const input=document.getElementById("input");
+  const input = document.getElementById("message");
 
-  const question=input.value.trim();
+  const message = input.value.trim();
 
-  if(!question) return;
+  if (!message) return;
 
-  addMessage(question,"user");
+  addMessage(message, "user");
 
-  input.value="";
+  input.value = "";
 
-  const typing=document.getElementById("typing");
+  addMessage("🙏 Soch raha hoon...", "bot");
 
-  typing.style.display="block";
+  try {
 
-  try{
+    const response = await fetch(API_URL, {
 
-    const response=await fetch(API_URL,{
+      method: "POST",
 
-      method:"POST",
-
-      headers:{
-        "Content-Type":"application/json"
+      headers: {
+        "Content-Type": "application/json"
       },
 
-      body:JSON.stringify({
-        message:question
+      body: JSON.stringify({
+        message: message
       })
 
     });
 
-    const data=await response.json();
+    const data = await response.json();
 
-    typing.style.display="none";
+    const chat = document.getElementById("chat");
 
-    if(data.reply){
+    chat.removeChild(chat.lastElementChild);
 
-      addMessage(data.reply,"bot");
+    if (data.reply) {
 
-    }else{
+      addMessage(data.reply, "bot");
+
+    } else {
 
       addMessage(
-        "माफ कीजिए, अभी AI से जवाब नहीं मिल पाया।",
+        "Maaf kijiye, abhi jawab nahi mil paaya.",
         "bot"
       );
 
     }
 
-  }catch(error){
+  } catch (error) {
 
-    typing.style.display="none";
+    const chat = document.getElementById("chat");
+
+    chat.removeChild(chat.lastElementChild);
 
     addMessage(
-  "Error: " + error.message,
-  "bot"
-);
-      
-    
-
+      "⚠️ Server se connection nahi ho paaya. Thodi der baad try karein.",
+      "bot"
+    );
   }
 }
-
-document.getElementById("input").addEventListener(
-  "keydown",
-  function(event){
-
-    if(event.key==="Enter"){
-      sendMessage();
-    }
-
-  }
-);
 
 </script>
 
