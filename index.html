@@ -1,191 +1,281 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#7c3aed" />
-  <title>Premanand GPT</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f5ff;
-      color: #222;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      background: linear-gradient(135deg, #6d28d9, #9333ea);
-      color: white;
-      padding: 18px 16px;
-      text-align: center;
-      box-shadow: 0 2px 8px #0002;
-    }
-    header h1 { margin: 0; font-size: 24px; }
-    header p { margin: 5px 0 0; font-size: 12px; opacity: .9; }
-    #chat {
-      flex: 1;
-      overflow-y: auto;
-      padding: 16px;
-    }
-    .message {
-      max-width: 86%;
-      padding: 12px 14px;
-      margin: 9px 0;
-      border-radius: 16px;
-      line-height: 1.45;
-      white-space: pre-wrap;
-    }
-    .bot {
-      background: white;
-      border: 1px solid #e8e0ff;
-      margin-right: auto;
-      border-bottom-left-radius: 5px;
-    }
-    .user {
-      background: #7c3aed;
-      color: white;
-      margin-left: auto;
-      border-bottom-right-radius: 5px;
-    }
-    .suggestions {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 8px 12px;
-    }
-    .suggestions button {
-      flex: 0 0 auto;
-      border: 1px solid #c4b5fd;
-      background: white;
-      color: #5b21b6;
-      border-radius: 20px;
-      padding: 9px 12px;
-    }
-    .input-area {
-      display: flex;
-      gap: 8px;
-      padding: 10px;
-      background: white;
-      border-top: 1px solid #ddd;
-    }
-    #input {
-      flex: 1;
-      border: 1px solid #ccc;
-      border-radius: 24px;
-      padding: 12px 15px;
-      font-size: 16px;
-      outline: none;
-    }
-    #send {
-      width: 48px;
-      height: 48px;
-      border: none;
-      border-radius: 50%;
-      background: #7c3aed;
-      color: white;
-      font-size: 20px;
-    }
-    .small {
-      font-size: 11px;
-      color: #777;
-      text-align: center;
-      padding: 5px 10px;
-      background: white;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premanand GPT</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f5f0ff;
+  color:#222;
+}
+
+.header{
+  background:linear-gradient(135deg,#6a1b9a,#9c27b0);
+  color:white;
+  padding:22px 18px;
+  text-align:center;
+}
+
+.logo{
+  font-size:42px;
+}
+
+h1{
+  margin:5px 0;
+  font-size:28px;
+}
+
+.badge{
+  display:inline-block;
+  background:#ffffff33;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:12px;
+}
+
+.subtitle{
+  margin-top:8px;
+  opacity:.9;
+}
+
+.chat{
+  max-width:700px;
+  margin:auto;
+  padding:15px;
+  padding-bottom:120px;
+}
+
+.message{
+  padding:13px 15px;
+  margin:10px 0;
+  border-radius:16px;
+  max-width:88%;
+  line-height:1.5;
+}
+
+.bot{
+  background:white;
+  border:1px solid #e4d9f5;
+}
+
+.user{
+  background:#7b1fa2;
+  color:white;
+  margin-left:auto;
+}
+
+.quick{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:12px 0 18px;
+}
+
+.quick button{
+  border:0;
+  padding:10px 13px;
+  border-radius:20px;
+  background:#eadcff;
+  color:#5a1680;
+}
+
+.input-area{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  padding:12px;
+  box-shadow:0 -2px 12px #0002;
+}
+
+.input-box{
+  max-width:700px;
+  margin:auto;
+  display:flex;
+  gap:8px;
+}
+
+input{
+  flex:1;
+  padding:14px;
+  border:1px solid #ccc;
+  border-radius:25px;
+  font-size:16px;
+  outline:none;
+}
+
+.send{
+  border:0;
+  background:#7b1fa2;
+  color:white;
+  width:52px;
+  border-radius:50%;
+  font-size:20px;
+}
+
+.typing{
+  color:#777;
+  font-style:italic;
+  display:none;
+}
+
+.disclaimer{
+  text-align:center;
+  font-size:11px;
+  color:#777;
+  margin-top:20px;
+}
+</style>
 </head>
+
 <body>
 
-<header>
-  <h1>🕉️ Premanand GPT</h1>
-  <p>Spiritual learning assistant • Unofficial app</p>
-</header>
-
-<main id="chat">
-  <div class="message bot">
-    Radhe Radhe 🙏
-
-    Main Premanand GPT ka demo assistant hoon. Aap spiritual teachings, bhakti, discipline, naam-jap aur jeevan se jude questions pooch sakte hain.
-
-    Note: Yeh unofficial prototype hai aur Premanand Ji ya unki sanstha se affiliated/endorsed nahi hai.
-  </div>
-</main>
-
-<div class="suggestions">
-  <button onclick="ask('Naam jap kaise shuru karun?')">Naam jap</button>
-  <button onclick="ask('Student ke liye discipline kaise banayein?')">Discipline</button>
-  <button onclick="ask('Bhakti ka arth kya hai?')">Bhakti</button>
-  <button onclick="ask('Man ko shant kaise rakhein?')">Man ki shanti</button>
+<div class="header">
+  <div class="logo">ॐ</div>
+  <h1>Premanand GPT</h1>
+  <div class="badge">UNOFFICIAL AI ASSISTANT</div>
+  <div class="subtitle">Radhe Radhe 🙏</div>
 </div>
 
-<div class="small">Demo version — answers are built-in, not connected to a live AI yet.</div>
+<div class="chat" id="chat">
+
+  <div class="message bot">
+    Radhe Radhe 🙏<br>
+    मैं आपका आध्यात्मिक learning assistant हूँ।<br>
+    आप भक्ति, नाम-जप, अनुशासन, ध्यान और मन की शांति से जुड़े प्रश्न पूछ सकते हैं।
+  </div>
+
+  <div class="quick">
+    <button onclick="ask('Naam jap kaise karein?')">🙏 Naam Jap</button>
+    <button onclick="ask('Student ke liye discipline kaise banayein?')">📚 Discipline</button>
+    <button onclick="ask('Bhakti kaise badhayein?')">🪷 Bhakti</button>
+    <button onclick="ask('Man ko shant kaise karein?')">🧘 Man ki shanti</button>
+  </div>
+
+  <div class="typing" id="typing">AI जवाब लिख रहा है...</div>
+
+  <div class="disclaimer">
+    यह एक unofficial AI assistant है और Premanand Ji या उनके किसी आधिकारिक संगठन से affiliated नहीं है।
+  </div>
+
+</div>
 
 <div class="input-area">
-  <input id="input" type="text" placeholder="Apna question likhiye..." autocomplete="off" />
-  <button id="send" onclick="sendMessage()">➤</button>
+  <div class="input-box">
+    <input id="input" placeholder="अपना प्रश्न लिखें..." />
+    <button class="send" onclick="sendMessage()">➤</button>
+  </div>
 </div>
 
 <script>
-  const chat = document.getElementById("chat");
-  const input = document.getElementById("input");
 
-  function addMessage(text, type) {
-    const div = document.createElement("div");
-    div.className = "message " + type;
-    div.textContent = text;
-    chat.appendChild(div);
-    chat.scrollTop = chat.scrollHeight;
+const API_URL =
+"https://premanand-gpt-api.sainwinian5430.workers.dev";
+
+function addMessage(text,type){
+
+  const chat=document.getElementById("chat");
+
+  const div=document.createElement("div");
+
+  div.className="message "+type;
+
+  div.innerText=text;
+
+  chat.insertBefore(
+    div,
+    document.getElementById("typing")
+  );
+
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function ask(text){
+
+  document.getElementById("input").value=text;
+
+  sendMessage();
+}
+
+async function sendMessage(){
+
+  const input=document.getElementById("input");
+
+  const question=input.value.trim();
+
+  if(!question) return;
+
+  addMessage(question,"user");
+
+  input.value="";
+
+  const typing=document.getElementById("typing");
+
+  typing.style.display="block";
+
+  try{
+
+    const response=await fetch(API_URL,{
+
+      method:"POST",
+
+      headers:{
+        "Content-Type":"application/json"
+      },
+
+      body:JSON.stringify({
+        message:question
+      })
+
+    });
+
+    const data=await response.json();
+
+    typing.style.display="none";
+
+    if(data.reply){
+
+      addMessage(data.reply,"bot");
+
+    }else{
+
+      addMessage(
+        "माफ कीजिए, अभी AI से जवाब नहीं मिल पाया।",
+        "bot"
+      );
+
+    }
+
+  }catch(error){
+
+    typing.style.display="none";
+
+    addMessage(
+      "Connection में समस्या है। कृपया थोड़ी देर बाद फिर कोशिश करें।",
+      "bot"
+    );
+
   }
+}
 
-  function ask(text) {
-    input.value = text;
-    sendMessage();
+document.getElementById("input").addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key==="Enter"){
+      sendMessage();
+    }
+
   }
+);
 
-  function getReply(question) {
-    const q = question.toLowerCase();
-
-    if (q.includes("naam jap") || q.includes("jap")) {
-      return "Naam-jap ko shraddha aur niyamitata ke saath shuru karna achha hai. Shuruaat mein thoda samay nirdharit karke bina jaldi kiye jap karein. Apni parampara aur guru ke margdarshan ko prathmikta dein.";
-    }
-
-    if (q.includes("discipline") || q.includes("student") || q.includes("padhai")) {
-      return "Student ke liye discipline ka matlab hai apne kartavya ko niyamit roop se karna. Padhai ka fixed time rakhein, phone distractions kam karein, aur roz thoda-thoda consistently kaam karein.";
-    }
-
-    if (q.includes("bhakti")) {
-      return "Bhakti ko saral roop mein Bhagwan ke prati prem, shraddha aur samarpan ke roop mein samjha ja sakta hai. Bhakti ke saath achha acharan aur seva bhi mahatvapurn hain.";
-    }
-
-    if (q.includes("shant") || q.includes("stress") || q.includes("tension") || q.includes("man")) {
-      return "Man ko shant karne ke liye kuch samay shant baithna, naam-smaran, prarthana, achhe vicharon ka sang aur apne kartavya par dhyan dena sahayak ho sakta hai.";
-    }
-
-    if (q.includes("radhe") || q.includes("krishna")) {
-      return "Radhe Radhe 🙏 Shri Radha-Krishna ke prati prem aur bhakti ko apne jeevan mein achhe acharan, seva aur naam-smaran ke madhyam se jeene ka prayas kiya ja sakta hai.";
-    }
-
-    return "Radhe Radhe 🙏 Is prototype mein abhi limited built-in answers hain. Aap apna question thoda specific karke pooch sakte hain, jaise: “Naam jap kaise shuru karun?” ya “Student ke liye discipline kaise banayein?”";
-  }
-
-  function sendMessage() {
-    const question = input.value.trim();
-    if (!question) return;
-
-    addMessage(question, "user");
-    input.value = "";
-
-    setTimeout(() => {
-      addMessage(getReply(question), "bot");
-    }, 350);
-  }
-
-  input.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") sendMessage();
-  });
 </script>
 
 </body>
