@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "dev.pages.premanand_gpt.twa",
+      "sha256_cert_fingerprints": [
+        "4A:CA:F2:B9:91:28:32:D1:9E:63:15:20:5E:AC:1D:F7:EA:D0:5E:F5:5E:BC:42:63:31:84:31:5F:88:29:C3:68"
+      ]
+    }
+  }
+]
